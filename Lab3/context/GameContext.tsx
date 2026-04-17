@@ -114,12 +114,16 @@ export function getChallenges(state: GameState): Challenge[] {
       target: 1,
     },
     {
-      id: "fling",
-      label: "Свайп вправо та вліво",
-      progress:
-        (state.flingLeftCount > 0 ? 1 : 0) +
-        (state.flingRightCount > 0 ? 1 : 0),
-      target: 2,
+      id: "flingLeft",
+      label: "Свайп вліво",
+      progress: Math.min(state.flingLeftCount, 1),
+      target: 1,
+    },
+    {
+      id: "flingRight",
+      label: "Свайп вправо",
+      progress: Math.min(state.flingRightCount, 1),
+      target: 1,
     },
     {
       id: "pinch",

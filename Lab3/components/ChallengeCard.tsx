@@ -14,8 +14,11 @@ export default function ChallengeCard({ challenge, isDark }: Props) {
 
   return (
     <View
-      className="mx-4 mb-3 rounded-2xl p-4"
       style={{
+        marginHorizontal: 16,
+        marginBottom: 12,
+        borderRadius: 16,
+        padding: 16,
         backgroundColor: isDark ? "#1f2937" : "#ffffff",
         shadowColor: "#000",
         shadowOffset: { width: 0, height: 1 },
@@ -24,10 +27,19 @@ export default function ChallengeCard({ challenge, isDark }: Props) {
         elevation: 1,
       }}
     >
-      <View className="flex-row items-center justify-between mb-2">
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: 8,
+        }}
+      >
         <Text
-          className="text-base font-semibold flex-1"
           style={{
+            fontSize: 16,
+            fontWeight: "600",
+            flex: 1,
             color: done
               ? isDark
                 ? "#34d399"
@@ -40,25 +52,26 @@ export default function ChallengeCard({ challenge, isDark }: Props) {
           {done ? "✓ " : ""}
           {label}
         </Text>
-        <Text
-          className="text-sm"
-          style={{ color: isDark ? "#9ca3af" : "#6b7280" }}
-        >
+        <Text style={{ fontSize: 14, color: isDark ? "#9ca3af" : "#6b7280" }}>
           {Math.min(progress, target)}/{target}
         </Text>
       </View>
 
-      {/* Progress bar */}
       <View
-        className="h-2.5 rounded-full overflow-hidden"
-        style={{ backgroundColor: isDark ? "#374151" : "#e5e7eb" }}
+        style={{
+          height: 10,
+          borderRadius: 9999,
+          overflow: "hidden",
+          backgroundColor: isDark ? "#374151" : "#e5e7eb",
+        }}
       >
         <View
           style={{
             width: `${pct}%`,
             backgroundColor: done ? "#22c55e" : "#6366f1",
+            height: "100%",
+            borderRadius: 9999,
           }}
-          className="h-full rounded-full"
         />
       </View>
     </View>

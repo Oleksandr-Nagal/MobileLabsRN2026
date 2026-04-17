@@ -8,16 +8,22 @@ export default function ScoreDisplay() {
   const { isDark } = useTheme();
 
   return (
-    <View className="items-center py-6">
+    <View style={{ alignItems: "center", paddingVertical: 24 }}>
       <Text
-        className="text-lg font-medium"
-        style={{ color: isDark ? "#9ca3af" : "#6b7280" }}
+        style={{
+          fontSize: 18,
+          fontWeight: "500",
+          color: isDark ? "#9ca3af" : "#6b7280",
+        }}
       >
         Рахунок
       </Text>
       <Text
-        className="text-6xl font-bold"
-        style={{ color: isDark ? "#818cf8" : "#6366f1" }}
+        style={{
+          fontSize: 60,
+          fontWeight: "700",
+          color: isDark ? "#818cf8" : "#6366f1",
+        }}
       >
         {state.score}
       </Text>

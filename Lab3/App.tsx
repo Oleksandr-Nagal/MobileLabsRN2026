@@ -11,6 +11,7 @@ import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import { GameProvider } from "./context/GameContext";
 import GameScreen from "./screens/GameScreen";
 import ChallengesScreen from "./screens/ChallengesScreen";
+import SettingsScreen from "./screens/SettingsScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -45,7 +46,9 @@ function AppContent() {
                             const iconName =
                                 route.name === "Game"
                                     ? "game-controller-outline"
-                                    : "trophy-outline";
+                                    : route.name === "Challenges"
+                                    ? "trophy-outline"
+                                    : "settings-outline";
                             return (
                                 <Ionicons name={iconName as any} size={size} color={color} />
                             );
@@ -69,6 +72,11 @@ function AppContent() {
                         name="Challenges"
                         component={ChallengesScreen}
                         options={{ title: "Виклики" }}
+                    />
+                    <Tab.Screen
+                        name="Settings"
+                        component={SettingsScreen}
+                        options={{ title: "Налаштування" }}
                     />
                 </Tab.Navigator>
             </NavigationContainer>
